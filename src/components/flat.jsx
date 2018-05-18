@@ -9,7 +9,15 @@ class Flat extends Component {
   render() {
 
     return (
-      null
+
+      <div className="card" key={this.props.id} style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url(${this.props.info.imageUrl})`}} >
+        <div className="card-category">{this.props.info.price}</div>
+        <div className="card-description">
+          <h2>{this.props.info.name}</h2>
+        </div>
+        <a className="card-link" href="#"></a>
+      </div>
+
     );
   }
 }

@@ -17,10 +17,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="right-scene">
-          <FlatList flats={this.props.flats} />
-        </div>
-        <div className="left-scene">
+        <FlatList flats={this.props.flats} />
+        <div className="map-container">
           <MapComponent />
         </div>
       </div>

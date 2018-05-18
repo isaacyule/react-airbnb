@@ -11,10 +11,10 @@ class FlatList extends Component {
   render() {
 
     return (
-      <div className="FlatList">
-        {this.props.flats.map(flat => {
-          <Flat info={flat} />
-        })}
+      <div className="flat-list">
+        {this.props.flats.map(flat =>
+          <Flat info={flat} key={flat.id} />
+        )}
       </div>
     );
   }
