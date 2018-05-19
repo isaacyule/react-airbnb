@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const AnyReactComponent = ({ text }) => <div className="marker">{text}</div>;
 
 class SimpleMap extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
   static defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 59.955413,
+      lng: 30.337844
     },
-    zoom: 11
+    zoom: 17
   };
 
   render() {
@@ -18,13 +23,18 @@ class SimpleMap extends Component {
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "" }}
-          defaultCenter={this.props.center}
+          defaultCenter={this.center}
           defaultZoom={this.props.zoom}
+          center={ {
+            lat: this.props.selectedFlat.lat,
+            lng: this.props.selectedFlat.lng,
+            zoom: 20
+          }}
         >
           <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text={'Kreyser Avrora'}
+            lat={this.props.selectedFlat.lat}
+            lng={this.props.selectedFlat.lng}
+            text={`${this.props.selectedFlat.name}`}
           />
         </GoogleMapReact>
       </div>
